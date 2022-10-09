@@ -17,7 +17,7 @@ services:
     image: postgres:13-alpine
     container_name: stats-db
     ports:
-      - "6540:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_DB=statistic
       - POSTGRES_USER=postgres
@@ -34,9 +34,9 @@ services:
       - SERVER_PORT=8080
       - STATS_SERVER_URL=http://server:9090
     depends_on:
-      - main-db
+      - ewm-db
 
-  main-db:
+  ewm-db:
     image: postgres:13-alpine
     container_name: main-db-container
     ports:
