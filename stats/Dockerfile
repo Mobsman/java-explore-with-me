@@ -1,4 +1,3 @@
-FROM openjdk:11
-COPY target/*.jar stats.jar
-EXPOSE 9090
-ENTRYPOINT ["java","-jar","/stats.jar"]
+FROM amazoncorretto:11
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
