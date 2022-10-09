@@ -2,7 +2,7 @@ package ru.practicum.main.user.dto;
 
 import org.springframework.stereotype.Component;
 import ru.practicum.main.user.entity.User;
-import ru.practicum.main.user.request.NewUserRequest;
+
 
 @Component
 public class UserDtoConverter {

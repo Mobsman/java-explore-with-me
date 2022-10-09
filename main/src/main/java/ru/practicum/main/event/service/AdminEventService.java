@@ -34,8 +34,8 @@ public class AdminEventService {
         Sort sort = Sort.by(Sort.Direction.ASC, "eventDate");
 
         return repository.findWithAdminParameters(
-                        users, states, categories, rangeStart, rangeEnd, PageRequest.of(from / size, size, sort)).stream().
-                map(converter::convertToEventFullDto).collect(Collectors.toList());
+                        users, states, categories, rangeStart, rangeEnd, PageRequest.of(from / size, size, sort)).stream()
+                .map(converter::convertToEventFullDto).collect(Collectors.toList());
 
     }
 

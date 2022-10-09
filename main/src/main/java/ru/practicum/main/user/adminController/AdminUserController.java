@@ -3,19 +3,13 @@ package ru.practicum.main.user.adminController;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.main.user.service.UserService;
 import ru.practicum.main.user.request.NewUserRequest;
 import ru.practicum.main.user.dto.UserDto;
 
-
 import javax.validation.Valid;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
-
-import static org.springframework.http.HttpStatus.OK;
 
 
 @RequestMapping("/admin/users")
