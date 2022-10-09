@@ -8,13 +8,14 @@ services:
       - "9090:9090"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/statistic
-      - SERVER_PORT=9090
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
     depends_on:
       - stats-db
 
   stats-db:
     image: postgres:13-alpine
-    container_name: stats-db-container
+    container_name: stats-db
     ports:
       - "5432:5432"
     environment:
@@ -22,7 +23,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
 
-  main-service:
+  ewm-service:
     build: main
     image: main-dock
     container_name: main-container
