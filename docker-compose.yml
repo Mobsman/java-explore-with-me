@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.1'
 services:
   stats-server:
     build: stats
@@ -17,7 +17,7 @@ services:
     image: postgres:13-alpine
     container_name: stats-db
     ports:
-      - "5432:5432"
+      - "6540:5432"
     environment:
       - POSTGRES_DB=statistic
       - POSTGRES_USER=postgres
@@ -40,7 +40,7 @@ services:
     image: postgres:13-alpine
     container_name: main-db-container
     ports:
-      - "5434:5432"
+      - "6541:5432"
     environment:
       - POSTGRES_DB=explore
       - POSTGRES_USER=postgres
