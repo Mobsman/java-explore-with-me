@@ -40,7 +40,7 @@ services:
     image: postgres:13-alpine
     container_name: main-db-container
     ports:
-      - "6541:5432"
+      - "5434:5432"
     environment:
       - POSTGRES_DB=explore
       - POSTGRES_USER=postgres
