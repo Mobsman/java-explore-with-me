@@ -37,7 +37,7 @@ public class CategoryService {
 
     public CategoryDto getById(long categoryId) {
         return converter.convertCategoryDto(
-                repository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category id " + categoryId + " not found")));
+                repository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Категория не найдена")));
     }
 
 
@@ -58,11 +58,11 @@ public class CategoryService {
     public CategoryDto update(UpdateCategoryRequest request) {
 
         if (repository.findById(request.getId()).isEmpty()) {
-            throw new CategoryNotFoundException("Category id " + request.getId() + " not found");
+            throw new CategoryNotFoundException("Категория не найдена");
         }
 
         if (repository.findByName(request.getName()).isPresent()) {
-            throw new CategoryUniqException("Category name " + request.getName() + " is present");
+            throw new CategoryUniqException("Категория не найдена");
         }
 
         Category category = repository.findById(request.getId()).get();
@@ -75,7 +75,7 @@ public class CategoryService {
     public void delete(Long categoryId) {
 
         if (repository.findById(categoryId).isEmpty()) {
-            throw new CategoryNotFoundException("Category id " + categoryId + " not found");
+            throw new CategoryNotFoundException("Категория не найдена");
         }
         repository.deleteById(categoryId);
     }
