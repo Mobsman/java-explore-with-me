@@ -14,9 +14,7 @@ import ru.practicum.main.category.request.NewCategoryRequest;
 import ru.practicum.main.category.entity.Category;
 import ru.practicum.main.category.exception.CategoryNotFoundException;
 import ru.practicum.main.category.request.UpdateCategoryRequest;
-
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
