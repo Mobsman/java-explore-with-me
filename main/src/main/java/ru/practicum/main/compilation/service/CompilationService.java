@@ -72,9 +72,8 @@ public class CompilationService {
 
     @Transactional
     public void deleteEventFromCompilation(Long compilationId, Long eventId) {
-        if (compilationRepository.findById(compilationId).isEmpty()) {
-            throw new CategoryNotFoundException("Подборка не найдена");
-        }
+
+        compilationCheck(compilationId);
 
         if (eventRepository.findById(eventId).isEmpty()) {
             throw new EventNotFoundException("Событие не найдено");
@@ -92,9 +91,7 @@ public class CompilationService {
     @Transactional
     public CompilationDto addEventFromCompilation(Long compilationId, Long eventId) {
 
-        if (compilationRepository.findById(compilationId).isEmpty()) {
-            throw new CategoryNotFoundException("Подборка не найдена");
-        }
+        compilationCheck(compilationId);
 
         if (eventRepository.findById(eventId).isEmpty()) {
             throw new EventNotFoundException("Событие не найдено");
@@ -134,6 +131,13 @@ public class CompilationService {
         compilation.setPinned(true);
 
         return converter.toDto(compilationRepository.save(compilation));
+    }
+
+    public void compilationCheck(Long compilationId) {
+
+        if (compilationRepository.findById(compilationId).isEmpty()) {
+            throw new CategoryNotFoundException("Подборка не найдена");
+        }
     }
 }
 

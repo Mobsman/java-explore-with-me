@@ -16,6 +16,7 @@ import ru.practicum.main.category.exception.CategoryNotFoundException;
 import ru.practicum.main.category.request.UpdateCategoryRequest;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -57,15 +58,12 @@ public class CategoryService {
 
     public CategoryDto update(UpdateCategoryRequest request) {
 
-        if (repository.findById(request.getId()).isEmpty()) {
-            throw new CategoryNotFoundException("Категория не найдена");
-        }
-
         if (repository.findByName(request.getName()).isPresent()) {
-            throw new CategoryUniqException("Категория не найдена");
+            throw new CategoryUniqException("Такая категория уже есть");
         }
 
-        Category category = repository.findById(request.getId()).get();
+        Category category = repository.findById(request.getId())
+                .orElseThrow(() -> new CategoryNotFoundException("категория не найдена"));
 
         category.setName(request.getName());
 
