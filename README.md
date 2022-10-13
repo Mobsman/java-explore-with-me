@@ -23,3 +23,11 @@ https://github.com/Mobsman/java-explore-with-me/pull/1
 Спецификации API:
 - [основного сервиса](ewm-main-service-spec.json)
 - [сервиса статистики](ewm-stats-service-spec.json)
+
+API комментариев:
+1. PATCH /admin/comments/{commentId} - отредактировать комментарий пользователя;
+2. DELETE /admin/comments/{commentId} - удалить комментарий пользователя;
+3. POST users/{userId}/comments/events/{eventId} создать комментарий 
+4. PATH users/{userId}/comments/events/{eventId} отредактирвоать комментарий
+5. PATH users/{userId}/comments/{commentId}/events/{eventId} удалить комментарий
+

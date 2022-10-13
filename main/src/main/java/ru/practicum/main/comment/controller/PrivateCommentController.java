@@ -26,7 +26,7 @@ public class PrivateCommentController {
         return service.createComment(request, userId, eventId);
     }
 
-    @PutMapping("/events/{eventId}")
+    @PatchMapping("/events/{eventId}")
     public CommentDto updateComment(@PathVariable("userId") Long userId,
                                     @PathVariable("eventId") Long eventId,
                                     @RequestBody @Valid UpdateCommentRequest request) {
