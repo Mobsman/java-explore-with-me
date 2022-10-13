@@ -11,7 +11,7 @@ import ru.practicum.main.comment.service.CommentService;
 
 
 @RestController
-@RequestMapping("/users/{userId}/comments/")
+@RequestMapping("/users/{userId}/comments")
 @RequiredArgsConstructor
 public class PrivateCommentController {
 
