@@ -6,6 +6,8 @@ import ru.practicum.main.comment.dto.CommentDto;
 import ru.practicum.main.comment.request.UpdateCommentRequest;
 import ru.practicum.main.comment.service.CommentService;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/admin/comments")
@@ -21,7 +23,7 @@ public class AdminCommentController {
 
     @PutMapping("/{commentId}")
     public CommentDto editComment(@PathVariable("commentId") Long commentId,
-                                  @RequestBody UpdateCommentRequest request) {
+                                  @RequestBody @Valid UpdateCommentRequest request) {
         return service.editCommentByAdmin(commentId, request);
     }
 

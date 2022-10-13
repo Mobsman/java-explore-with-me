@@ -9,6 +9,8 @@ import ru.practicum.main.comment.request.NewCommentRequest;
 import ru.practicum.main.comment.request.UpdateCommentRequest;
 import ru.practicum.main.comment.service.CommentService;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/users/{userId}/comments")
@@ -20,15 +22,14 @@ public class PrivateCommentController {
     @PostMapping("/events/{eventId}")
     public CommentDto createComment(@PathVariable("userId") Long userId,
                                     @PathVariable("eventId") Long eventId,
-                                    @RequestBody NewCommentRequest request) {
-
+                                    @RequestBody @Valid NewCommentRequest request) {
         return service.createComment(request, userId, eventId);
     }
 
     @PutMapping("/events/{eventId}")
     public CommentDto updateComment(@PathVariable("userId") Long userId,
                                     @PathVariable("eventId") Long eventId,
-                                    @RequestBody UpdateCommentRequest request) {
+                                    @RequestBody @Valid UpdateCommentRequest request) {
         return service.updateComment(request, userId, eventId);
     }
 

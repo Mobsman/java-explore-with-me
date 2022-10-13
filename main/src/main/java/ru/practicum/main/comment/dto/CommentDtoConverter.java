@@ -1,9 +1,12 @@
 package ru.practicum.main.comment.dto;
 
+import org.springframework.stereotype.Component;
 import ru.practicum.main.comment.entity.Comment;
 
 import java.time.LocalDateTime;
 
+
+@Component
 public class CommentDtoConverter {
 
 

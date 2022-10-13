@@ -84,7 +84,6 @@ public class CommentService {
 
     public void deleteCommentByAdmin(Long commentId) {
 
-
         if (commentRepository.findById(commentId).isEmpty()) {
             throw new CommentNotFoundException("Комментарий не найден");
         }
@@ -94,13 +93,8 @@ public class CommentService {
 
     public CommentDto editCommentByAdmin(Long commentId, UpdateCommentRequest request) {
 
-
-        if (commentRepository.findById(commentId).isEmpty()) {
-            throw new CommentNotFoundException("Комментарий не найден");
-        }
-
-        Comment comment = commentRepository.findById(request.getId()).orElseThrow(()
-                -> new CategoryNotFoundException("Категория не найдена"));
+        Comment comment = commentRepository.findById(commentId).orElseThrow(()
+                -> new CategoryNotFoundException("Комментарий не найден"));
 
         comment.setText(request.getText());
         comment.setEdited(LocalDateTime.now());
