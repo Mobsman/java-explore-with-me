@@ -83,7 +83,3 @@ create table if not exists comment
     constraint fk_comments_author FOREIGN KEY (author) REFERENCES users (id)
 );
 
-select * from users as u left join request r on u.id = r.requester_id
-    left join event as e on r.event_id = e.id
-where u.id = ? and e.id = ?
-  and r.state = 'CONFIRMED' and e.event_date < now()
