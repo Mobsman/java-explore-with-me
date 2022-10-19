@@ -16,6 +16,7 @@ public class CommentDtoConverter {
                 .author(source.getAuthor().getId())
                 .event(source.getEvent().getId())
                 .text(source.getText())
+                .state(source.getState())
                 .created(LocalDateTime.now())
                 .edited(source.getEdited()).build();
 

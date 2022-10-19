@@ -2,6 +2,7 @@ package ru.practicum.main.comment.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import ru.practicum.main.comment.entity.CommentState;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +19,7 @@ public class CommentDto {
     private LocalDateTime created;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime edited;
+    private CommentState state;
     private String text;
 
 }

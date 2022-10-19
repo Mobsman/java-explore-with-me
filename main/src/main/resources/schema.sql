@@ -76,6 +76,7 @@ create table if not exists comment
     event      bigint       not null,
     author     bigint       not null,
     created    timestamp without time zone  not null,
+    state      varchar(20)                  not null,
     edited     timestamp without time zone,
     text       varchar(300) not null,
     primary key (id),

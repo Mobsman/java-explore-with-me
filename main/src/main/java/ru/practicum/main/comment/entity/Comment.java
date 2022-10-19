@@ -32,6 +32,10 @@ public class Comment {
     @Column(name = "created")
     private LocalDateTime created;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "state")
+    private CommentState state;
+
     @Column(name = "edited")
     private LocalDateTime edited;
 
